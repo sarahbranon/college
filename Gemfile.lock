@@ -127,6 +127,9 @@ GEM
       rack
     omniauth-facebook (1.5.1)
       omniauth-oauth2 (~> 1.1.0)
+    omniauth-google-oauth2 (0.2.1)
+      omniauth (~> 1.0)
+      omniauth-oauth2
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -227,6 +230,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-facebook
+  omniauth-google-oauth2
   pg
   quiet_assets
   rails (= 4.0.1)
