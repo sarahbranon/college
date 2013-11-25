@@ -1,4 +1,13 @@
 class User < ActiveRecord::Base
+
+  #
+  # INCLUDES
+  #
+  include MultiStepModel
+
+  #
+  # AUTH
+  #
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -45,6 +54,9 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  # Multistep model
+  def self.total_steps; 3; end
 
   #
   # INSTANCE METHODS

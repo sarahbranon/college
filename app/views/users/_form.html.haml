@@ -1,0 +1,16 @@
+= simple_form_for @user do |f|
+
+  -# TODO screen readers?
+  - if params[:all]
+    = hidden_field_tag :all, 1
+    - User.total_steps.times do |step|
+      = render "users/steps/page#{step + 1}", f: f
+    = f.button :submit
+
+  - else
+    = f.hidden_field :current_step, value: @user.current_step
+    = render "users/steps/page#{@user.current_step + 1}", f: f
+
+    - unless @user.first_step?
+      = f.button :submit, "Back", input_html: { name: "back_button" }
+    = f.button :submit, @user.last_step? ? "Finish" : "Next"
