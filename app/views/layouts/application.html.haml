@@ -4,6 +4,7 @@
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : 'College'
     %meta{name: "description", content: "#{content_for?(:description) ? yield(:description) : 'College'}"}
+    %link{ href: "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet" }
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -15,5 +16,5 @@
       = yield
     %footer
       .container
-        depict
-        hi@depict.com
+        %p depict
+        %p= mail_to "hi@depict.com"

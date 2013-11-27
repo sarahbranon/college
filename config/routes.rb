@@ -3,7 +3,7 @@ College::Application.routes.draw do
     controllers: { registrations: "registrations", omniauth_callbacks: "users/omniauth_callbacks" }
 
   devise_scope :user do
-    root to: "registrations#new"
+    root to: "devise/sessions#new"
   end
 
   resources :users do

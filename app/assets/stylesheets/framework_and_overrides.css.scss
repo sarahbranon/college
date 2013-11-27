@@ -19,3 +19,22 @@ footer {
   color: #fff;
   background-color: $navbar-default-bg;
 }
+button.close { line-height: 16px; }
+input.boolean {
+  // Override default .form-control input class, which sets a width and height.
+  width: auto;
+  height: auto;
+}
+label.boolean { line-height: 21px; }
+.modal-dialog {
+  padding-top: 15%;
+}
+.modal-header {
+  h2, h3 { float: left; margin: 0; }
+}
+.oauth-buttons {
+  .btn {
+    float: left;
+    background-color: $brand-success;
+  }
+}

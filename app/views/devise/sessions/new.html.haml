@@ -1,7 +1,43 @@
-%h2 Sign in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-vertical' }) do |f|
-  = f.input :email, autofocus: true
-  = f.input :password
-  = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  = f.button :submit, "Sign in", class: 'btn-primary'
-= render "devise/shared/links"
+.jumbotron
+  %h1 You're ready.
+  %h2
+    -# , on paper, then in person.
+    Make your application come alive.
+    = link_to "Get started", "#login", "data-toggle" => "modal"
+.row
+  .col-md-6
+    %h3 An effective application tells a story. Demonstrates focus. Articulates vision.
+  .col-md-6
+    = image_tag "student_by_rethe.png"
+.row
+  .col-md-6
+    = image_tag "student_by_rethe_2.png"
+  .col-md-6
+    %h3 We learn about you, and craft your *details* into a cohesive whole
+.row
+  .col-md-6
+    %h3 so your readers and interviewers can see you like your friends, family, and colleagues do.
+  .col-md-6
+    = image_tag "prof_student_by_rethe.jpg"
+.row
+  .col-md-6
+    = image_tag "student_by_rethe_3.png"
+  .col-md-6
+    %h3 so you can find your fit.
+-# All these images are by rethe(http://rethe.deviantart.com/), who I will pay if this ever goes live :)
+
+#login.modal.fade{ tabindex: "-1", role: "dialog", "aria-labelledby" => "login", "aria-hidden" => "true" }
+  .modal-dialog
+    .modal-content
+      .modal-header.clearfix
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true" } &times;
+        %h3 Welcome back.
+      .modal-body
+        = render "devise/shared/oauth"
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-vertical' }) do |f|
+          = f.input :email, autofocus: true
+          - forgot_link = link_to "Forgot your password?", new_password_path(resource_name)
+          = f.input :password, hint: forgot_link
+          = f.input :remember_me, as: :boolean, wrapper: :inline_checkbox if devise_mapping.rememberable?
+          = f.button :submit, "Sign in", class: 'btn-primary'
+          = link_to "Sign up", new_registration_path(resource_name)

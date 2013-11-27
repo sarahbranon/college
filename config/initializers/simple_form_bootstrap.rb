@@ -2,6 +2,8 @@
 SimpleForm.setup do |config|
   # Default class for inputs
   config.input_class = 'form-control'
+  # Booleans
+  config.boolean_style = :inline
 
   config.wrappers :bootstrap, tag: 'div', class: 'form-group', error_class: 'error' do |b|
     b.use :html5
@@ -19,6 +21,12 @@ SimpleForm.setup do |config|
     b.use :input, wrap_with: { class: "input-group" }
     b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
     b.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+  end
+
+  config.wrappers :inline_checkbox, :tag => 'div', :class => 'checkbox', :error_class => 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label_input
   end
 
   # Wrappers for forms and inputs using the Twitter Bootstrap toolkit.
